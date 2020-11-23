@@ -3,12 +3,14 @@ package mono
 import reactor.core.publisher.Mono
 
 fun main() {
-    val mono: Mono<CharArray> =
-        Mono.just("Hello Reactive World")
-            .flatMap {
-                val words = it.split(" ")
-                val acronym = words.map { word -> word[0] }.toCharArray()
-                Mono.just(acronym)
-            }
-    mono.subscribe(::println)
+    val greeting = "Hello"
+    Mono.justOrEmpty(greeting)
+        .switchIfEmpty(greetIfEmpty())
+        .subscribe(::println)
+}
+
+fun greetIfEmpty() : Mono<String> {
+    val greeting = "Hello Reactive World"
+    println(greeting)
+    return Mono.just(greeting)
 }
