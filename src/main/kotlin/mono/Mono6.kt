@@ -3,11 +3,8 @@ package mono
 import reactor.core.publisher.Mono
 
 fun main() {
-    Mono.fromSupplier {
-        val greeting = "Hello Reactive World"
-        var welcome = "Welcome"
-        welcome += " ${greeting.split(" ")[1]}"
-        welcome += " ${greeting.split(" ")[2]}"
-        welcome
-    }.subscribe(::println)
+    val greeting: String? = null
+    Mono.justOrEmpty(greeting)
+        .defaultIfEmpty("Hello Reactive World")
+        .subscribe(::println)
 }

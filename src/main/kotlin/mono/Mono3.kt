@@ -3,14 +3,10 @@ package mono
 import reactor.core.publisher.Mono
 
 fun main() {
-    val greeting = "Hello"
+    val greeting: String? = null
     Mono.justOrEmpty(greeting)
-        .switchIfEmpty(greetIfEmpty())
+        .switchIfEmpty(Mono.defer {
+            Mono.just("Hello Reactive World")
+        })
         .subscribe(::println)
-}
-
-fun greetIfEmpty() : Mono<String> {
-    val greeting = "Hello Reactive World"
-    println(greeting)
-    return Mono.just(greeting)
 }
