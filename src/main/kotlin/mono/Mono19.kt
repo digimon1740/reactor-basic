@@ -4,7 +4,7 @@ import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
 
 fun main() {
-    Schedulers.newSingle("SingleThread").schedule {
+    Schedulers.newSingle("NonBlockingSingleThread").schedule {
         val mono: Mono<String> =
             Mono.just("Welcome Back")
                 .zipWhen {
