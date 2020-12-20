@@ -8,7 +8,7 @@ fun main() {
     val two = Flux.just("two").delayElements(Duration.ofMillis(400))
     val three = Flux.just("three").delayElements(Duration.ofMillis(500))
 
-    val flux: Flux<String> = Flux.merge(three, two, one)
+    val flux: Flux<String> = Flux.concat(three, two, one)
     flux.subscribe(::println)
 
    Thread.sleep(Duration.ofSeconds(2).toMillis())
