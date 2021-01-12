@@ -16,8 +16,7 @@ fun main() {
         .toFlux()
         .subscribe(::println)
 
-    "Mono1".toMono()
-        .concatWith("Mono2".toMono())
+    "MonoToFlux".toMono()
         .toFlux()
         .subscribe(::println)
 }
