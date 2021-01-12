@@ -12,4 +12,5 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("io.projectreactor:reactor-core:3.4.0")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.2")
 }
