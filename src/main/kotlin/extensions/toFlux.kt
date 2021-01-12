@@ -12,6 +12,10 @@ fun main() {
         .toFlux()
         .subscribe(::println)
 
+    setOf("D", "E", "F")
+        .toFlux()
+        .subscribe(::println)
+
     "Mono1".toMono()
         .concatWith("Mono2".toMono())
         .toFlux()
